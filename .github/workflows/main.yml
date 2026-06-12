@@ -1,0 +1,13 @@
+Create GitHub Actions workflow.
+
+Build Android APK automatically on every push.
+
+Generate:
+.github/workflows/android-build.yml
+
+Requirements:
+- Gradle build
+- Assemble Debug APK
+- Upload APK as artifact
+- Create GitHub Release
+- Attach APK to Release
