@@ -1,0 +1,6 @@
+{
+  "name": "YAFTA FOR ADVERTISING",
+  "description": "تطبيق يافطة لتصميم اللوحات والواجهات الاحترافية بالذكاء الاصطناعي وبأدوات تعديل قوية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
