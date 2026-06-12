@@ -1,13 +1,32 @@
-Create GitHub Actions workflow.
+name: Android Build
 
-Build Android APK automatically on every push.
+on:
+  push:
+    branches:
+      - main
 
-Generate:
-.github/workflows/android-build.yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-Requirements:
-- Gradle build
-- Assemble Debug APK
-- Upload APK as artifact
-- Create GitHub Release
-- Attach APK to Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
+      - name: Build APK
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/debug/*.apk
